@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <!-- Script quảng cáo Monetag -->
-  <script>
-    (function(d,z,s){
-      s.src='https://'+d+'/400/'+z;
-      try{
-        (document.body||document.documentElement).appendChild(s)
-      } catch(e){}
-    })('vemtoutcheeg.com', 9676366, document.createElement('script'))
-  </script>
-  <link rel="icon" type="image/png" href="favicon-32x32.png">
   <meta charset="UTF-8">
   <title>(GoFushi Doujinshi) Khi nào mới được ăn</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -140,39 +130,50 @@
   </div>
 
   <!-- Nút đọc chương -->
+  <a id="chapter1Btn" class="chapter-link" href="#">📖 Chương 1</a>
+  <a id="chapter2Btn" class="chapter-link" href="#">📖 Chương 2 (H)</a>
+  <a id="chapter3Btn" class="chapter-link" href="#">📖 Phiên ngoại</a>
+
+ <script>
+  document.getElementById('chapter1Btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.open('https://s.shopee.vn/10s9mHA5zd', '_blank');
+    window.location.href = 'chuong-2.1.html';
+  });
+
+  document.getElementById('chapter2Btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.open('https://s.shopee.vn/gFJOzvmOl', '_blank');
+    window.location.href = 'chuong-2.2.html';
+  });
+
+  document.getElementById('chapter3Btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.open('https://s.shopee.vn/2B47GpqlGa', '_blank');
+    window.location.href = 'PN.html';
+  });
+</script>
 <a class="chapter-link" href="chuong-2.1.html">📖 Chương 1</a>
 <a class="chapter-link" href="chuong-2.2.html">📖 Chương 2 (H)</a>
 <a class="chapter-link" href="PN.html">📖 Phiên ngoại</a>
 
 
 <!-- Bình luận bằng Cusdis -->
-  <div style="max-width: 800px; margin: 50px auto; background-color: rgba(255, 255, 255, 0.85); padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-    <div id="cusdis_thread"
-      data-host="https://cusdis.com"
-      data-app-id="15436ac4-9fde-438a-97e9-08d882790dfe"
-      data-page-id="Gofushi2"
-      data-page-url="https://momoiro0512.github.io/1.1%20Itsu%20shite%20ii%20no%20(done)/chuong-2.html"
-      data-page-title="(GoFushi Doujinshi) Khi nào mới được ăn - Giới thiệu">
-    </div>
+@@ -167,7 +147,16 @@
   </div>
 
   <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 
-  <!-- QUẢNG CÁO BANNER -->
-  <div style="margin: 30px auto; text-align: center;">
-    <script type="text/javascript">
-      atOptions = {
-        'key' : '0bb8728bb4b1784ea0018fe395d258eb',
-        'format' : 'iframe',
-        'height' : 60,
-        'width' : 468,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="//www.highperformanceformat.com/0bb8728bb4b1784ea0018fe395d258eb/invoke.js"></script>
-  </div>
+<script type="text/javascript">
+  atOptions = {
+    'key' : '0bb8728bb4b1784ea0018fe395d258eb',
+    'format' : 'iframe',
+    'height' : 60,
+    'width' : 468,
+    'params' : {}
+  };
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/0bb8728bb4b1784ea0018fe395d258eb/invoke.js"></script>
   <footer>
     &copy; 2025 Momoiro. All rights reserved.
   </footer>
-</body>
-</html>
