@@ -108,72 +108,118 @@
   box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
   /* display: block; // hoặc không khai báo để mặc định */
 }
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup-overlay.active {
+      display: flex;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 90%;
+    }
+
+    .popup-shopee-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #ff5722;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+  </style>
     </style>
 </head>
 <body>
 
-  <!-- Thanh cố định đầu trang -->
-  <div class="top-nav">
-    <a href="/index.html" class="home-button">Quay về trang chủ</a>
-  </div>
-
-  <h1>🌸 (GoFushi Doujinshi) Khi nào mới được ăn 🌸</h1>
-
-  <div class="chapter-preview">
-    <img src="Part%201/1.jpg" alt="Minh họa chương 1" style="max-width: 90%; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); margin-top: 30px;">
-    <h2>Giới thiệu</h2>
-    <p>[Gofushi Doujinshi] Itsu shite ii no - ACORUS - HOÀN</p>
-    <p>Tạm dịch: Khi nào mới được ăn</p>
-    <p>Tác giả: ACORUS</p>
-    <p>Raw: Thánh địa myreadingmanga</p>
-    <p>Megumi tự hỏi bao giờ Gojo - sensei mới "ăn" mình đây.</p>
-  </div>
-
-  <!-- Nút đọc chương -->
-  <a id="chapter1Btn" class="chapter-link" href="#">📖 Chương 1</a>
+@@ -167,67 +134,42 @@
   <a id="chapter2Btn" class="chapter-link" href="#">📖 Chương 2 (H)</a>
   <a id="chapter3Btn" class="chapter-link" href="#">📖 Phiên ngoại</a>
+
+  <!-- Popup -->
+  <div id="shopeePopup" class="popup-overlay">
+    <div class="popup-content">
+      <h3>🌸 Một yêu cầu nhỏ từ Momoiro 🌸</h3>
+      <p>Để ủng hộ nhóm dịch, nếu được mời bạn mua thứ gì đó qua Shopee nhé!</p>
+      <a id="popupShopeeLink" class="popup-shopee-button" href="#" target="_blank">🛒 Mở Shopee</a>
+      <p style="color: #888; font-size: 0.9em;">(Chương truyện sẽ mở sau 5-6 giây...)</p>
+    </div>
+  </div>
+
+  <script>
+  let currentChapterLink = '';
+  let currentShopeeLink = '';
 
  <script>
   document.getElementById('chapter1Btn').addEventListener('click', function(e) {
     e.preventDefault();
+    currentChapterLink = 'chuong-2.1.html'; // Đường dẫn chương 1
+    currentShopeeLink = 'https://s.shopee.vn/10s9mHA5zd'; // Shopee link chương 1
+    document.getElementById('shopeePopup').classList.add('active');
     window.open('https://s.shopee.vn/10s9mHA5zd', '_blank');
     window.location.href = 'chuong-2.1.html';
   });
 
   document.getElementById('chapter2Btn').addEventListener('click', function(e) {
     e.preventDefault();
+    currentChapterLink = 'chuong-2.2.html'; // Đường dẫn chương 2
+    currentShopeeLink = 'https://s.shopee.vn/gFJOzvmOl'; // Shopee link chương 2 (bạn thay tại đây)
+    document.getElementById('shopeePopup').classList.add('active');
     window.open('https://s.shopee.vn/gFJOzvmOl', '_blank');
     window.location.href = 'chuong-2.2.html';
   });
+// Chương 3 (bạn có thể thay link Shopee và chương tại đây)
 
   document.getElementById('chapter3Btn').addEventListener('click', function(e) {
     e.preventDefault();
+    currentChapterLink = 'PN.html';
+    currentShopeeLink = 'https://s.shopee.vn/2B47GpqlGa'; // 👉 sửa lại link Shopee chương 3
+    document.getElementById('shopeePopup').classList.add('active');
+  });
+    
+  document.getElementById('popupShopeeLink').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.open(currentShopeeLink, '_blank');
+    document.getElementById('shopeePopup').classList.remove('active');
+
+    setTimeout(() => {
+      window.location.href = currentChapterLink;
+    }, 3000);
     window.open('https://s.shopee.vn/2B47GpqlGa', '_blank');
     window.location.href = 'PN.html';
   });
 </script>
-<a class="chapter-link" href="chuong-2.1.html">📖 Chương 1</a>
-<a class="chapter-link" href="chuong-2.2.html">📖 Chương 2 (H)</a>
-<a class="chapter-link" href="PN.html">📖 Phiên ngoại</a>
 
 
 <!-- Bình luận bằng Cusdis -->
-@@ -167,7 +147,16 @@
+  <div style="max-width: 800px; margin: 50px auto; background-color: rgba(255, 255, 255, 0.85); padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <div id="cusdis_thread"
+      data-host="https://cusdis.com"
+      data-app-id="15436ac4-9fde-438a-97e9-08d882790dfe"
+      data-page-id="Gofushi2"
+      data-page-url="https://momoiro0512.github.io/1.1%20Itsu%20shite%20ii%20no%20(done)/chuong-2.html"
+      data-page-title="(GoFushi Doujinshi) Khi nào mới được ăn - Giới thiệu">
+    </div>
   </div>
 
   <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 
-<script type="text/javascript">
-  atOptions = {
-    'key' : '0bb8728bb4b1784ea0018fe395d258eb',
-    'format' : 'iframe',
-    'height' : 60,
-    'width' : 468,
-    'params' : {}
-  };
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/0bb8728bb4b1784ea0018fe395d258eb/invoke.js"></script>
   <footer>
     &copy; 2025 Momoiro. All rights reserved.
   </footer>
+</body>
+</html>
